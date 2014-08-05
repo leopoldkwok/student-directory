@@ -77,5 +77,4 @@ def save_students
     file.close
   end
 
-
 interactive_menu
