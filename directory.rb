@@ -1,3 +1,5 @@
+
+
 def print_header
   puts "The students of my cohort at Makers Academy"
   puts "-------------"
@@ -22,7 +24,7 @@ def input_students
   # while the name is not empty, repeat this code
   while !answer.empty? do    
     # add the student hash to the array
-    students << {:name => name, :cohort => month.to_sym}
+    students << {:name => name, :cohort => month.to_sym} # to_sym means to turn into symbols which is used for doing things fast but is not really applicable here
     # puts students.inspect
     puts "Now we have #{students.length} students"
     # get another name from the user
@@ -34,13 +36,28 @@ def input_students
   students
 end
 
-def print(students)
+
+def print_students(students)
   students.each do |student|
   puts "#{student[:name]}(#{student[:cohort]} cohort)".center(50)
   end
 end
 
+def list_cohorts(students)
+  cohorts = students.map {|student| student[:cohort]}.uniq
+
+  cohorts.each do |cohort|
+    puts "These are the students for #{cohort}"
+    print_students students.select { |student| student[:cohort] == cohort }
+  end
+ 
+end
+
+
+
+
 students = input_students
 print_header
-print(students)
+print_students(students)
 print_footer(students)
+list_cohorts(students)
