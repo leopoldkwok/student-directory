@@ -27,6 +27,7 @@ def input_students
     students << {:name => name, :cohort => month.to_sym} # to_sym means to turn into symbols which is used for doing things fast but is not really applicable here
     # puts students.inspect
   
+  # plural form
   if students.length == 1
   one = students.length
   puts "Now we have #{one} student"
