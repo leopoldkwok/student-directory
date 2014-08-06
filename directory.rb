@@ -3,12 +3,6 @@ def print_header
   puts "-------------"
 end
 
-def print(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)".center(50)
-  end
-end
-
 def print_footer(names)    
   puts "Overall, we have #{names.length} great students".center(50)
 end
@@ -22,18 +16,28 @@ def input_students
   answer = gets.chomp.split(" ")
   name = answer[0]
   month = answer[1]
+  if month == nil
+    month =  "missing"
+  end
   # while the name is not empty, repeat this code
   while !answer.empty? do    
     # add the student hash to the array
-    students << {:name => name, :cohort => month}    
+    students << {:name => name, :cohort => month.to_sym}
+    # puts students.inspect
     puts "Now we have #{students.length} students"
     # get another name from the user
     answer = gets.chomp.split(" ")
-  name = answer[0]
-  month = answer[1]
+    name = answer[0]
+    month = answer[1]
   end
   # return the array of students
   students
+end
+
+def print(students)
+  students.each do |student|
+  puts "#{student[:name]}(#{student[:cohort]} cohort)".center(50)
+  end
 end
 
 students = input_students
