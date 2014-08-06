@@ -26,7 +26,18 @@ def input_students
     # add the student hash to the array
     students << {:name => name, :cohort => month.to_sym} # to_sym means to turn into symbols which is used for doing things fast but is not really applicable here
     # puts students.inspect
-    puts "Now we have #{students.length} students"
+  
+  if students.length == 1
+  one = students.length
+  puts "Now we have #{one} student"
+    else
+    more = students.length 
+    puts "Now we have #{more} students"
+    end
+
+
+    #puts "Now we have #{students.length} students"
+    
     # get another name from the user
     answer = gets.chomp.split(" ")
     name = answer[0]
