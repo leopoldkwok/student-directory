@@ -47,9 +47,7 @@ end
 
 def save_students
   # open the file for writing
-  puts "Enter Filename:"
-  filename = gets.chomp
-  file = File.open(filename, "w")
+  file = File.open(get_filename, "w")
   # iterate over the array of students
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
@@ -64,17 +62,25 @@ def add_student(name, cohort)
 end
 
 
-
-def load_students(filename = "students.csv")
-  puts "Enter filename:"
-  filename = gets.chomp
-    CSV.foreach(filename) do |row|
+def load_students
+ 
+    CSV.foreach(get_filename) do |row|
     name, cohort = row
     add_student(name, cohort)
   end
 end
 
 
+def get_filename
+   puts "Enter filename:"
+  filename = gets.chomp
+end
+
+
+
+
+
+#This was question 5 but question 5 doesn't make sense
 def access_file(filename = "students.csv")
   file = File.open(filename, "r") do |file| 
     process file
