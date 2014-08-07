@@ -47,7 +47,9 @@ end
 
 def save_students
   # open the file for writing
-  file = File.open("students.csv", "w")
+  puts "Enter Filename:"
+  filename = gets.chomp
+  file = File.open(filename, "w")
   # iterate over the array of students
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
@@ -64,7 +66,9 @@ end
 
 
 def load_students(filename = "students.csv")
-    CSV.foreach("students.csv") do |row|
+  puts "Enter filename:"
+  filename = gets.chomp
+    CSV.foreach(filename) do |row|
     name, cohort = row
     add_student(name, cohort)
   end
@@ -74,23 +78,23 @@ end
 def access_file(filename = "students.csv")
   file = File.open(filename, "r") do |file| 
     process file
-    
+
   end
 end
 
 
 
-def try_load_students
-  filename = "students.csv" #first argument from the command line
-  return if filename.nil? #get out of the mehtod if it isn't given
-  if File.exists?(filename) # if it exists
-    load_students(filename)
-    puts "Loaded #{@students.length} from #{filename}"
-  else #if it doesn't exist
-    puts "Sorry, #{filename} doesn't exist."
-    exit #quit the program
-  end
-end
+# def try_load_students
+#   filename = "students.csv" #first argument from the command line
+#   return if filename.nil? #get out of the mehtod if it isn't given
+#   if File.exists?(filename) # if it exists
+#     load_students(filename)
+#     puts "Loaded #{@students.length} from #{filename}"
+#   else #if it doesn't exist
+#     puts "Sorry, #{filename} doesn't exist."
+#     exit #quit the program
+#   end
+# end
 
 def process(selection)
   case selection
@@ -117,6 +121,6 @@ def interactive_menu
 end
 
 # access_file
-try_load_students
+# try_load_students
 
 interactive_menu
