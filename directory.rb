@@ -1,3 +1,4 @@
+require 'csv'
 @students = []
 
 def print_header
@@ -60,17 +61,27 @@ def add_student(name, cohort)
   @students << {:name => name, :cohort => cohort.to_sym}
 end
 
+
+
 def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-    name, cohort = line.chomp.split(',')
+    CSV.foreach("students.csv") do |row|
+    name, cohort = row
     add_student(name, cohort)
   end
-  file.close
 end
 
+
+def access_file(filename = "students.csv")
+  file = File.open(filename, "r") do |file| 
+    process file
+    
+  end
+end
+
+
+
 def try_load_students
-  filename = ARGV.first #first argument from the command line
+  filename = "students.csv" #first argument from the command line
   return if filename.nil? #get out of the mehtod if it isn't given
   if File.exists?(filename) # if it exists
     load_students(filename)
@@ -105,5 +116,7 @@ def interactive_menu
   end
 end
 
+# access_file
 try_load_students
+
 interactive_menu
