@@ -28,6 +28,6 @@ git@github.com:leopoldkwok/student-directory.git
 Run the program without a file to load students.
 
 ```shell
-cd student-directory.git
+cd student-directory
 ruby directory.rb
 ```
