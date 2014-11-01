@@ -6,6 +6,8 @@ The student directory script allows you to manage the list of students enrolled 
 How to use
 -----------
 
+Run the program without a file to load students.
+
 ```shell
 ruby directory.rb
 ```
