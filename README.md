@@ -3,7 +3,7 @@ Student Directory
 
 This was my first project during week 1 of Makers Academy. The student directory script allows you to manage the list of students enrolled on the course at Makers Academy.
 
-Learnings:
+Learnings
 ---------- 
 * familarise myself with commandline, sublime text, git and basic Ruby.
 * an introduction to pair programming
