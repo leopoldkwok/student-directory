@@ -21,7 +21,7 @@ How to use
 Clone the repository:
 
 ```shell
-git@github.com:leopoldkwok/student-directory.git
+git clone git@github.com:leopoldkwok/student-directory.git
 ```
 
 
