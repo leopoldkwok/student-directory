@@ -10,7 +10,7 @@ Learnings
  
 
 Technologies used
-------------------
+-----------------
 
 * Ruby
 * Github
