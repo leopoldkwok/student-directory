@@ -16,7 +16,7 @@ Technologies used
 * Github
 
 How to use
------------
+----------
 
 Clone the repository:
 
