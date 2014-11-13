@@ -6,7 +6,7 @@ This was my first project during week 1 of Makers Academy. The student directory
 Learnings
 ---------- 
 * familarise myself with commandline, sublime text, git and basic Ruby.
-* an introduction to pair programming
+* an introduction to pair programming.
  
 
 Technologies used
